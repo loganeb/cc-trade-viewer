@@ -25,7 +25,6 @@
 
 <script>
 import ccxt from 'ccxt';
-import { mapMutations } from 'vuex';
 
 export default {
     data(){
@@ -38,17 +37,15 @@ export default {
         }
     },
     created() {
-        this.exchanges =  ccxt.exchanges.length > 0 ? ccxt.exchanges : {};
+        this.$store.dispatch('loadExchanges');
+        this.exchanges = this.$store.state.exchanges;
     },
     methods: {
         setSelection(value){
             this.selection = value;
             this.search = value;
-            this.setExchange(this.selection);
+            this.$store.commit('setExchangeSelection', value);
         },
-        ...mapMutations({
-            setExchange: 'setExchange'
-        })
     },
     watch: {
         search(){

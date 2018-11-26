@@ -11,7 +11,7 @@
 export default {
     computed:{
         exchange(){
-            return this.$store.state.exchange;
+            return this.$store.state.exchangeSelection;
         }
     }
 }

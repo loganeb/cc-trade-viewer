@@ -1,12 +1,28 @@
+import ccxt from 'ccxt';
+
 export const state = () => ({
-    exchange: '',
+    exchanges: [],
+    exchangeSelection: '',
     pair: '',
     trades: [],
-    test: 'TEST',
 });
 
 export const mutations = {
-    setExchange(state, exchange){
-        state.exchange = exchange;
+    setExchanges(state, exchanges){
+        state.exchanges = exchanges;
+    },
+    setExchangeSelection(state, exchange){
+        state.exchangeSelection = exchange;
     }
-}
+};
+
+export const actions = {
+    loadExchanges({ commit }) {
+        const exchanges = ccxt.exchanges;
+
+        if(exchanges)
+            commit('setExchanges', exchanges);
+        else
+            console.log('Error retrieving exchanges...')
+    },
+};
