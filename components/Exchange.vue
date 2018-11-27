@@ -29,7 +29,6 @@ import ccxt from 'ccxt';
 export default {
     data(){
         return {
-            exchanges: [],
             search: '',
             results: [],
             searching: false,
@@ -38,13 +37,17 @@ export default {
     },
     created() {
         this.$store.dispatch('loadExchanges');
-        this.exchanges = this.$store.state.exchanges;
+    },
+    computed: {
+        exchanges(){
+            return this.$store.state.exchanges;
+        }
     },
     methods: {
         setSelection(value){
             this.selection = value;
             this.search = value;
-            this.$store.commit('setExchangeSelection', value);
+            this.$store.dispatch('loadExchangeSelection', value);
         },
     },
     watch: {
