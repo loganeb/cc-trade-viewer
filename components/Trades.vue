@@ -10,7 +10,7 @@
                     </div>
                 </div>
                 <div class="column price">
-                    <h2 class="component-subtitle">Price({{ pair.substr(4,3) }})</h2>                    
+                    <h2 class="component-subtitle">Price({{ pair.substr(pair.lastIndexOf('/')+1) }})</h2>                    
                     <div class="data-column" v-for="trade in trades" :key="trade.id">
                         {{ trade.price.toPrecision(6) }}
                     </div>

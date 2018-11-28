@@ -42,7 +42,8 @@ export default {
     },
     watch: {
         search(){
-            this.results = this.pairs.filter(pair => pair.includes(this.search.toUpperCase()));
+            this.results = this.pairs
+                            .filter(pair => pair.includes(this.search.toUpperCase()));
         }
     },
     methods: {
@@ -53,12 +54,15 @@ export default {
             this.searching = false;
             this.loadTrades();
         },
+
+        //Get trades from exchange every 5 seconds, stop if new exchange selected
         loadTrades: function(){
             var self = this;
             let loop = setInterval(function(){
                 if(self.$store.state.pair === '')
                     clearInterval(loop);
-                self.$store.dispatch('loadTrades');
+                else
+                    self.$store.dispatch('loadTrades');
             }, 5000);
         },
     }

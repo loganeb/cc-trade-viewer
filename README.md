@@ -1,6 +1,14 @@
-# exchange
+# CC Trade Viewer
 
-> My polished Nuxt.js project
+> View recent trades on cryptocurrency exchanges
+
+This app was built to fulfill an assignment as a part of my internship with [Apollo DAE](https://apollodae.io/).
+
+It allows users to search exchanges provided in the [CCXT Library](https://github.com/ccxt/ccxt).
+
+Users can search markets based on asset trading pairs and view the most recent trades on that market.
+
+Trades refresh every 5 seconds.
 
 ## Build Setup
 

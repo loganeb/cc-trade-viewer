@@ -30,6 +30,7 @@ export const mutations = {
     },
     clearPair(state){
         state.pair = '';
+        state.pairs = [];
         state.trades = [];
     }
 };
