@@ -10,6 +10,8 @@ Users can search markets based on asset trading pairs and view the most recent t
 
 Trades refresh every 5 seconds.
 
+[Use the app here](https://adoring-elion-54d2d6.netlify.com)
+
 ## Build Setup
 
 ``` bash
