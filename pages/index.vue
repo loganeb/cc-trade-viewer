@@ -1,6 +1,6 @@
 <template>
-  <section class="container">
-    <div class="columns">
+  <div class="container">
+    <div class="columns is-variable is-1">
       <div class="column ">
         <exchange></exchange>
       </div>
@@ -11,7 +11,7 @@
         <trades></trades>
       </div>
     </div>
-  </section>
+  </div>
 </template>
 
 <script>
@@ -35,6 +35,8 @@ export default {
   text-align: center;
   font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
     'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  width: 100%;
+  padding: 0;
 }
 
 </style>

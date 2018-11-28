@@ -5,7 +5,7 @@ export const state = () => ({
     exchangeSelection: null,
     markets: null,
     pair: '',
-    trades: null,
+    trades: [],
     pairs: [],
 });
 
@@ -21,6 +21,16 @@ export const mutations = {
     setMarkets(state){
         state.markets = state.exchangeSelection.markets;
         state.pairs = Object.keys(state.exchangeSelection.markets);
+    },
+    setPair(state, pair){
+        state.pair = pair;
+    },
+    setTrades(state, trades){
+        state.trades = trades;
+    },
+    clearPair(state){
+        state.pair = '';
+        state.trades = [];
     }
 };
 
@@ -45,5 +55,23 @@ export const actions = {
                 context.commit('setExchangeSelection', selection);
                 context.commit('setMarkets');  
             })
-    }
+    },
+    loadTrades(context){
+        let exchange = new ccxt[context.state.exchangeSelection.id]({
+            'enableRateLimit': true,
+            'proxy': 'https://cors-anywhere.herokuapp.com/',
+        });
+
+        console.log(context.state.exchangeSelection.id);
+
+        if(exchange.has['fetchTrades']){
+            exchange.fetchTrades(context.state.pair, undefined, 20)
+                .then((trades) => {
+                    context.commit('setTrades', trades);
+                    console.log(trades.length);
+                });
+        
+        }
+
+    },
 };
