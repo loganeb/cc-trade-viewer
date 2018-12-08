@@ -45,11 +45,13 @@ export default {
 <style>
 
 .trade-component{
-    height: 100vh;
+    height: 600px;
+    max-height: 100vh;;
     padding: 20px;
     background:  rgb(20, 190, 212);
     overflow: auto;
     margin: 5px;
+    margin-top: 20px;
     border-radius: 5px;
 }
 

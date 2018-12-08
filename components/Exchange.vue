@@ -68,8 +68,10 @@ export default {
 
 <style>
     .exchange-component{
-        height: 100vh;
+        height: 600px;
+        max-height: 100vh;
         margin: 5px;
+        margin-top: 20px;
         padding: 20px;
         background:  rgb(11, 111, 124);
         border-radius: 5px;

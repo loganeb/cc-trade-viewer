@@ -71,10 +71,12 @@ export default {
 
 <style>
 .pair-component{
-    height: 100vh;
+    height: 600px;
+    max-height: 100vh;
     padding: 20px;
     background:  rgb(15, 150, 168);
     margin: 5px;
+    margin-top: 20px;
     border-radius: 5px;
 }
 </style>
